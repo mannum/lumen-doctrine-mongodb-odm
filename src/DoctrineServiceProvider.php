@@ -197,6 +197,11 @@ class DoctrineServiceProvider extends ServiceProvider
             $configuration->setDefaultDB($databaseConfig['connections'][$databaseConfig['default']]['database']);
         }
 
+        if ($this->app->environment('local')) {
+            $configuration->setAutoGenerateHydratorClasses(Configuration::AUTOGENERATE_EVAL);
+        } else {
+            $configuration->setAutoGenerateHydratorClasses(Configuration::AUTOGENERATE_FILE_NOT_EXISTS);
+        }
     }
 
 
