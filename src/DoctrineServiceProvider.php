@@ -241,7 +241,9 @@ class DoctrineServiceProvider extends ServiceProvider
         // @see http://doctrine-mongodb-odm.readthedocs.org/en/latest/reference/basic-mapping.html#custom-mapping-types
         if (isset($doctrineConfig['types'])) {
             foreach ($doctrineConfig['types'] as $name => $className) {
-                Type::addType($name, $className);
+                if (! Type::hasType($name)) {
+                    Type::addType($name, $className);
+                }
             }
         }
     }
