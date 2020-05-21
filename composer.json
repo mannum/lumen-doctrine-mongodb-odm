@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "doctrine/MongoDB-odm": "1.2.*",
+    "doctrine/MongoDB-odm": "^1.2",
     "crisu83/shortid": "1.*"
   },
   "autoload": {
